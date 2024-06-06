@@ -163,7 +163,7 @@ class LSCTSplitter(object):
         fig.tight_layout()
         pyplot.show()
 
-    def plot(self, columns = [[0, 2, 4], [5, 8, 10]], resid = False, *args, **kwargs):
+    def plot(self, columns = [[0]], resid = False, *args, **kwargs):
         """
         Plots the data.
 
