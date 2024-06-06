@@ -6,11 +6,7 @@ The LSCTSplitter is a Python package designed to decompose the yield curve into 
 Here is a complete example of how to use the LSCTSplitter package.
 
 ```python
-import pandas as pd
-import numpy as np
-import datetime
-from helper.utils import Timer
-from your_module import LSCTSplitter, loadYC
+from lsctsplitter import LSCTSplitter, loadYC
 
 if __name__ == "__main__":
     # Load data
