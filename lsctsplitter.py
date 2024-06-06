@@ -7,11 +7,10 @@ from scipy.optimize import minimize
 from matplotlib import pyplot
 from helper.utils import Timer
 
-def loadYC():
+def loadYC(path):
     '''
     Load the yield curve data from the saved drive
     '''
-    path = 'https://raw.githubusercontent.com/znzhao/LSCTSplitter/main/sample_data/ycg.csv'
     data = pd.read_csv(path, index_col = 'date')
     data.index = pd.to_datetime(data.index)
     data = data.sort_index()
@@ -202,7 +201,7 @@ class LSCTSplitter(object):
         pyplot.show()
 
 if __name__ == "__main__":
-    data = loadYC()
+    data = loadYC('https://raw.githubusercontent.com/znzhao/LSCTSplitter/main/sample_data/ycg.csv')
     data = data.tail(252)
     lscsplitter = LSCTSplitter()
     lscsplitter.fit(data=data)
