@@ -8,26 +8,13 @@ Here is a complete example of how to use the LSCTSplitter package.
 ```python
 from lsctsplitter import LSCTSplitter, loadYC
 
-if __name__ == "__main__":
-    # Load data
-    data = loadYC()
-    data = data.tail(252)
-    
-    # Initialize LSCTSplitter
-    lscsplitter = LSCTSplitter()
-    
-    # Fit model
-    lscsplitter.fit(data=data)
-    
-    # Perform inverse transformation
-    lscsplitter.inverse()
-    
-    # Plot factors
-    lscsplitter.plotfactors()
-    
-    # Plot data and residuals
-    lscsplitter.plot()
-    lscsplitter.plot(resid=True)
+data = yc.load('./data/yc_data.csv')
+lscsplitter = LSCTSplitter(maturities=[1.0/12, 2.0/12, 3.0/12, 6.0/12, 1.0, 2.0, 3.0, 5.0, 7.0, 10.0, 20.0, 30.0], n_factors=4, lambdas=0.49, verbose=0)
+factors = lscsplitter.fit_transform(data.values)
+Xs = lscsplitter.inverse_transform(factors)
+lscsplitter.plot_factors(data.values, t = data.index)
+print(Xs.shape)
+
 ```
 ## Reference
 - [Nelson, Charles R., and Andrew F. Siegel. "Parsimonious modeling of yield curves." Journal of business (1987): 473-489.](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.jstor.org/stable/pdf/2352957.pdf?casa_token=us1W8496haEAAAAA:qkjbLPi2BOklfh6Zv3ypmg-Ya0Yy_7TkdLwuC8Nc1k9aEqyiaGj9DlufKO4U0V9eRWGWbwGvc3N43LNYa1VABLM3i5tCP998VhHvIEB6-zoFv92fvcI)
