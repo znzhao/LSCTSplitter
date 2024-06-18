@@ -1,7 +1,7 @@
 # LSCTSplitter
 
 ## Updates
-- 1.1 Sklearn Support
+- Version 1.1: Sklearn Support
   - Package retructured for Scikit-learn support.
  
 ## Overview
