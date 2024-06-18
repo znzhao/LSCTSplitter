@@ -1,5 +1,9 @@
 # LSCTSplitter
 
+## Updates
+- 1.1 Sklearn Support
+  - Package retructured for Scikit-learn support.
+ 
 ## Overview
 The LSCTSplitter is a Python package designed to decompose the yield curve into its fundamental components: level, slope, curvature, and twist. This package includes functionalities to fit the LSCT model to the provided data, calculate errors, perform inverse transformations, and plot the results.
 ## Example
